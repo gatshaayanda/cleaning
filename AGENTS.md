@@ -7,7 +7,7 @@ This is a customer-first cleaning-products and bulk hygiene supply PWA for Geera
 1. Browse the product catalogue (initial featured products: Dishwashing Liquid Essential 5L — P65; Multi-Purpose Cleaner 5L — P70; Premium Pine Gel 5L — P125; Liquid Bleach 5L — P50).
 2. Add products and quantities to the basket.
 3. Submit customer contact details, collection/delivery location, order notes and optional supporting media.
-4. A Firebase guest session is created for the request; customers can link Google sign-in to revisit their own order history and make repeat orders easier.
+4. A Firebase guest session is created for the request; customers can link Google sign-in to revisit their own order history and review previous orders more easily.
 5. Confirm success only after the configured Firestore write succeeds. An order request is not confirmed stock, delivery/collection, or payment.
 
 ## Existing functionality and data safety

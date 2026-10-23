@@ -5,7 +5,7 @@ Customer-first cleaning-products catalogue and order-request PWA for Geerams Cle
 ## Customer flow
 - Browse products and add quantities to a basket.
 - Submit an order request with contact details and collection/delivery information.
-- A Firebase guest session is created for the request. Customers can link Google sign-in to revisit order history and make repeat orders easier.
+- A Firebase guest session is created for the request. Customers can link Google sign-in to revisit order history and review previous orders more easily.
 - Orders are not paid online and are not confirmed until Geerams verifies stock, fulfilment arrangements and payment details.
 
 ## Admin flow
