@@ -9,19 +9,19 @@ const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Facilities | Cleaning & Maintenance", template: "%s | Facilities" },
+  title: { default: "Geerams Cleaning Services | Cleaning Products", template: "%s | Geerams Cleaning Services" },
   description: "Facilities management and maintenance support in Botswana for commercial properties, offices, schools, retail sites and hospitality facilities.",
-  applicationName: "Facilities",
+  applicationName: "Geerams Cleaning Services",
   keywords: ["Facilities management Botswana", "commercial cleaning", "planned maintenance", "property maintenance", "facilities support"],
   alternates: { canonical: "/" },
-  openGraph: { type: "website", url: siteUrl, siteName: "Facilities", title: "Facilities | Cleaning & Maintenance", description: "Cleaning and facilities maintenance in Botswana. Tell us what your property needs." },
-  twitter: { card: "summary", title: "Facilities | Cleaning & Maintenance", description: "Cleaning and facilities maintenance in Botswana. Tell us what your property needs." },
+  openGraph: { type: "website", url: siteUrl, siteName: "Geerams Cleaning Services", title: "Geerams Cleaning Services | Cleaning Products", description: "Cleaning and facilities maintenance in Botswana. Tell us what your property needs." },
+  twitter: { card: "summary", title: "Geerams Cleaning Services | Cleaning Products", description: "Cleaning and facilities maintenance in Botswana. Tell us what your property needs." },
   icons: { icon: "/facilities-icon.svg", apple: "/facilities-icon.svg" },
   manifest: "/manifest.webmanifest",
-  appleWebApp: { capable: true, title: "Facilities", statusBarStyle: "default" },
+  appleWebApp: { capable: true, title: "Geerams", statusBarStyle: "default" },
 };
 
-export const viewport: Viewport = { themeColor: "#0f766e", colorScheme: "light" };
+export const viewport: Viewport = { themeColor: "#1A3B8B", colorScheme: "light" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="en"><body><PwaRegister />{children}<Analytics /><SpeedInsights /></body></html>;
