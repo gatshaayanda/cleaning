@@ -2,19 +2,19 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Africhiko",
-    short_name: "Africhiko",
-    description: "Welding and steel fabrication in Botswana. Browse services and request a project quotation.",
+    name: "Facilities",
+    short_name: "Facilities",
+    description: "Facilities management and maintenance in Botswana for commercial properties, offices, schools, retail and hospitality sites.",
     start_url: "/",
     display: "standalone",
-    background_color: "#6d28d9",
-    theme_color: "#6d28d9",
+    background_color: "#0f766e",
+    theme_color: "#0f766e",
     orientation: "portrait-primary",
     lang: "en",
-    categories: ["business", "construction"],
+    categories: ["business", "productivity"],
     icons: [
-      { src: "/africhiko-icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
-      { src: "/africhiko-icon.svg", sizes: "any", type: "image/svg+xml", purpose: "maskable" }
+      { src: "/facilities-icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
+      { src: "/facilities-icon.svg", sizes: "any", type: "image/svg+xml", purpose: "maskable" }
     ]
   };
 }
