@@ -45,7 +45,7 @@ export default function AdminGate({ children }: { children: React.ReactNode }) {
       const role = await getDoc(doc(db, "admins", credential.user.uid));
       if (!role.exists() || !["owner", "staff"].includes(String(role.data().role))) {
         await signOut(auth);
-        throw new Error("This account is not enabled for Namane Tyres Operations.");
+        throw new Error("This account is not enabled for Geerams Cleaning Services admin.");
       }
       setAuthorized(true);
     } catch (err) {
