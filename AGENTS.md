@@ -1,49 +1,36 @@
-# Africhiko — Project Operating Contract
+# Facilities — Project Operating Contract
 
 ## Product and source of truth
-Africhiko is a customer-first welding and steel-fabrication enquiry PWA for Botswana. The product owner is the final reviewer; the implementer must inspect actual repository state before making changes. GitHub, this file, and the project documentation are the source of truth. Do not carry instructions, identity, Firebase configuration, contacts, or business data over from another project.
+This is a customer-first facilities management and maintenance PWA for Botswana, serving commercial properties, office complexes, schools, retail sites and hospitality facilities. The product owner is the final reviewer. The actual repository, this file and project documentation are the source of truth. Do not carry business identity, contacts or data over from the source foundation.
 
-## Core customer journey
-1. Browse the fabrication catalogue or describe custom work.
-2. Build and review a quote request.
-3. Submit name, phone, optional email, project location, intended use, dimensions, materials, quantity, services and notes.
-4. Receive a truthful confirmation only after Firestore confirms the write.
-5. Optionally create an account after submission to keep future enquiries together.
-6. Africhiko reviews the request before any quotation or job is confirmed.
+## Customer journey
+1. Browse available service categories: commercial cleaning, planned maintenance, repairs and call-outs, and facilities support.
+2. Select relevant services or start a maintenance request directly.
+3. Submit contact details, property/site location, issue, affected area, access requirements, optional notes and supporting media.
+4. Confirm success only after the configured data write succeeds. Preserve form details and report failure truthfully if it does not.
+5. Allow optional Google sign-in for revisiting requests; do not force account creation before submission.
 
-Do not force account creation before an enquiry. Do not describe an enquiry as a confirmed quote, order, or accepted job. If a write fails, preserve the entered details and say the enquiry was not confirmed as saved.
+A request is not a confirmed visit, work order, schedule or service estimate. The facilities team reviews details before agreeing next steps.
 
-## Firebase and data security
-- Use the dedicated Africhiko Firebase project (africhiko) and NEXT_PUBLIC_FIREBASE_* environment variables.
-- admins/{uid} is provisioned outside the public client with role owner or staff.
-- Public users may read the service catalogue, but only authorized staff may write services.
-- Enquiry creation must be authenticated (anonymous auth is allowed), validated, and bound to request.auth.uid via customerId.
-- Customers may read only enquiries whose customerId equals their Auth UID. Owner/staff can read the inbox and update only operational fields.
-- Never open all Firestore access to work around a permission error. Match rules to the exact collections and fields used by the code.
-- Guest-to-account linking must preserve the same anonymous Auth UID where supported. Do not claim automatic merging across unrelated accounts.
-- Never commit .env.local, production credentials, service-account JSON or secrets.
+## Existing functionality and data safety
+- Preserve the current Firebase Authentication, Firestore collections, customer request journey, Google account linking, admin authorization, service CRUD, announcements, published service feed, interest signals and follow-up notes unless explicitly authorized to change them.
+- Do not claim an operational scheduling, technician dispatch, inspection or work-order workflow exists unless implemented and verified.
+- Do not open Firestore access to work around permission errors. Keep admin-only operations authorized and secrets server-side.
+- Use UploadThing through the existing integration for media uploads. Do not add Firebase Storage rules or migrate storage without explicit authorization.
+- The existing admin access code still reads the server-only `AFRICHIKO_ADMIN_WORD` environment variable. Keep it server-side; do not expose it through `NEXT_PUBLIC_*`. Rename only with an explicitly coordinated code/config change.
 
-## Media and integrations
-Inspect the actual implementation and environment before claiming an integration is present. The current enquiry form imports Firebase Storage for reference attachments; no UploadThing route/package was present at the last repository inspection. Do not claim UploadThing is active until the code and configuration are implemented and verified. Do not change Firebase Storage rules unless explicitly authorized; this project's current request is focused on Firestore and the customer enquiry journey.
+## PWA installation — protected
+The inherited Africhiko installation mechanism is locked. Do not redesign, rewrite, refactor, replace, remove or change the `beforeinstallprompt` lifecycle, event listeners, state, install button action, dismissible card, responsive positioning, embedded-browser behaviour or service-worker behaviour. For unrelated edits, preserve those mechanics exactly. Branding text, palette, app identity, icon artwork and cache namespace may change without changing behaviour. On iOS, installation instructions must accurately describe Safari Share → Add to Home Screen.
 
-## PWA installation — protected infrastructure
-The approved installation experience in Africhiko is a permanent reference for all projects. Do not redesign, rewrite, refactor, replace, remove or alter the install mechanism, beforeinstallprompt lifecycle, event listeners, state, dismissible branded card, responsive positioning, manifest, icons or service-worker behaviour unless the product owner explicitly authorizes that specific installation change. For unrelated work, leave installation files untouched. For iOS Safari, describe Share → Add to Home Screen accurately; do not invent support for Chromium's beforeinstallprompt on iOS.
+## Chatbot — protected
+Preserve the inherited chatbot implementation and behaviour. Change only its branding, wording and genuinely project-specific content unless the product owner explicitly authorizes a functional change.
 
-## Implementation and verification
-- Customer experience first; admin/staff workflows second.
-- Preserve working features and keep changes focused.
-- Include useful validation, loading, empty, error and success feedback; no dead controls or fake success.
-- Before a meaningful checkpoint, run npx tsc --noEmit, npm run lint and npm run build when the environment permits. Report checks that were not run honestly.
-- Do not infer production deployment success from a GitHub push or a successful build.
+## Identity and integrations
+Use Facilities branding and the dedicated Firebase project `cleaning-c8a27` in app-facing metadata, docs, environment examples and Firebase CLI configuration. Do not reuse source business contacts, credentials or data. Keep real tokens and service-account JSON out of Git.
+
+## Verification and delivery
+- Preserve working functionality and keep edits focused.
+- Run `npx tsc --noEmit`, `npm run lint` and `npm run build` when the environment permits; report only checks actually run.
+- A GitHub push or successful build does not prove production deployment health.
 - Never force-push or rewrite history.
-- For each checkpoint report repository, branch, commit, changed files, verification, configuration still needed, exact QA steps and deployment status.
-
-## Project identity
-Use Africhiko naming and the dedicated Africhiko project configuration in app-facing text, docs, environment examples and Firebase CLI configuration. Search for and correct inherited identity leaks rather than copying another project's details.
-
-
-## Admin access and work feed
-- The admin page uses one access-word field. The word is verified only on the server using `AFRICHIKO_ADMIN_WORD`; never hardcode it into client code or expose it in a `NEXT_PUBLIC_*` variable.
-- The server route also requires `FIREBASE_ADMIN_KEY` service-account JSON to provision the verified admin role. Configure both as server-only Vercel environment variables before expecting one-word access to work.
-- Work-feed items live in `workFeed`; only published items are public. Interest signals are deduplicated per Firebase UID in `workInterests`, and customer identities must never be displayed publicly.
-- Preserve the approved PWA installation mechanism and UX during unrelated work.
+- Checkpoint with repository, branch, commit, changed files, verification, required configuration, exact QA steps and deployment status.
