@@ -9,13 +9,13 @@ const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Facilities | Cleaning & Maintenance", template: "%s | Africhiko" },
+  title: { default: "Facilities | Cleaning & Maintenance", template: "%s | Facilities" },
   description: "Facilities management and maintenance support in Botswana for commercial properties, offices, schools, retail sites and hospitality facilities.",
   applicationName: "Facilities",
   keywords: ["Facilities management Botswana", "commercial cleaning", "planned maintenance", "property maintenance", "facilities support"],
   alternates: { canonical: "/" },
   openGraph: { type: "website", url: siteUrl, siteName: "Facilities", title: "Facilities | Cleaning & Maintenance", description: "Cleaning and facilities maintenance in Botswana. Tell us what your property needs." },
-  twitter: { card: "summary", title: "Facilities | Cleaning & Maintenance", description: "Welding and steel fabrication in Botswana. Tell us about your project and request a quotation." },
+  twitter: { card: "summary", title: "Facilities | Cleaning & Maintenance", description: "Cleaning and facilities maintenance in Botswana. Tell us what your property needs." },
   icons: { icon: "/facilities-icon.svg", apple: "/facilities-icon.svg" },
   manifest: "/manifest.webmanifest",
   appleWebApp: { capable: true, title: "Facilities", statusBarStyle: "default" },
