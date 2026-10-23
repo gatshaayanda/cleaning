@@ -187,3 +187,24 @@
 
 /* Geerams Cleaning Services storefront styling */
 .af-product-art{height:205px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f5f9fd;border-bottom:1px solid #d9e8f5}.af-product-image{width:100%;height:100%;object-fit:contain;padding:12px 16px;background:#fff}.af-product-size{position:absolute;z-index:2;right:14px;top:14px;padding:7px 10px;border-radius:7px;background:#1a3b8b;color:#fff;font-size:.68rem;font-weight:900;box-shadow:0 2px 8px #1e2a5e20}.af-product-art small{position:absolute;z-index:2;left:14px;bottom:12px;padding:4px 6px;border-radius:4px;background:#ffffffdc;color:#1e2a5e;font-size:.58rem;font-weight:900;letter-spacing:.08em}.af-geerams-visual{background:linear-gradient(145deg,#1e2a5e,#1a3b8b)!important;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;min-height:380px}.af-geerams-logo-art{position:relative;width:160px;height:115px;display:flex;align-items:center;justify-content:center;color:#fff}.af-house-mark{font-size:8rem;line-height:.8;transform:scaleX(1.25);font-weight:300}.af-shine-mark{position:absolute;right:3px;top:0;font-size:2rem;color:#00b4d8}.af-wave-mark{position:absolute;bottom:-9px;left:39px;font-size:4.5rem;color:#00b4d8;transform:scaleX(1.5)}.af-geerams-visual-title{margin:22px 0 0;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;letter-spacing:.06em}.af-geerams-visual-subtitle{margin:4px 0 70px;color:#7bdcf2;font-size:.8rem;font-weight:800;letter-spacing:.12em}.af-perks-list{padding-left:20px;color:var(--muted);line-height:1.9;font-size:.9rem}.af-home-contact{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:clamp(30px,5vw,60px) max(22px,calc((100% - 1240px)/2));background:#edf6fc;border-bottom:1px solid var(--line)}.af-home-contact h2{margin:0;font-size:clamp(1.7rem,3vw,2.5rem)}.af-home-contact p:not(.af-eyebrow){max-width:600px;color:var(--muted);line-height:1.6}@media(max-width:650px){.af-home-contact{align-items:flex-start;flex-direction:column;padding-left:17px;padding-right:17px}.af-product-art{height:180px}}
+
+
+/* Geerams home-featured product controls and Google account-link action. */
+.af-featured-control{display:grid;gap:10px;padding:14px;border:1px solid #c8d9ef;border-radius:9px;background:#f0f7fd}
+.af-featured-control>label:first-child{display:flex;align-items:center;gap:9px;font-weight:800}
+.af-featured-control input[type=checkbox]{width:18px;height:18px;min-height:18px;accent-color:#1A3B8B}
+.af-featured-control>label:nth-child(2){display:grid;gap:6px;font-size:.82rem;font-weight:750}
+.af-featured-control>label:nth-child(2) input{max-width:130px}
+.af-featured-control>small{color:#4d5c70;font-size:.75rem;line-height:1.5}
+.af-google-button{justify-content:center;background:#fff;color:#3c4043;border-color:#dadce0;box-shadow:0 1px 2px #00000012}
+.af-google-button:hover{background:#f8faff;color:#202124;border-color:#c6dafc}
+.af-google-icon{width:20px;height:20px;flex:0 0 20px}
+.af-spark-section{background:linear-gradient(130deg,#08182f,#102d4c);color:#f4fbff;border-bottom:3px solid #00A3E0}
+.af-spark-copy>p:not(.af-eyebrow){color:#c4dceb}
+.af-spark-copy .af-eyebrow{color:#75e4f5}
+.af-spark-stats span{border-color:#315775;color:#d8f2ff}
+.af-spark-stats b{color:#75e4f5}
+.af-spark-game-wrap{border-color:#2b617d;background:#07172f;box-shadow:0 18px 44px #02091670}
+.af-spark-game{min-height:260px}
+.af-spark-loading{background:#07172f;color:#e5f9ff}
+@media(max-width:760px){.af-spark-game{height:280px;min-height:280px}}
