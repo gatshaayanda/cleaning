@@ -5,23 +5,23 @@ import PwaRegister from "@/app/pwa-register";
 import "./globals.css";
 import "./pwa.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://africhiko.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Africhiko | Welding & Steel Fabrication", template: "%s | Africhiko" },
-  description: "Africhiko — welding and steel fabrication in Botswana. Browse services and submit a project brief for review and quotation.",
-  applicationName: "Africhiko",
-  keywords: ["Africhiko", "Botswana steel fabrication", "welding", "gates", "steel structures"],
+  title: { default: "Facilities | Cleaning & Maintenance", template: "%s | Africhiko" },
+  description: "Facilities management and maintenance support in Botswana for commercial properties, offices, schools, retail sites and hospitality facilities.",
+  applicationName: "Facilities",
+  keywords: ["Facilities management Botswana", "commercial cleaning", "planned maintenance", "property maintenance", "facilities support"],
   alternates: { canonical: "/" },
-  openGraph: { type: "website", url: siteUrl, siteName: "Africhiko", title: "Africhiko | Welding & Steel Fabrication", description: "Welding and steel fabrication in Botswana. Tell us about your project and request a quotation." },
-  twitter: { card: "summary", title: "Africhiko | Welding & Steel Fabrication", description: "Welding and steel fabrication in Botswana. Tell us about your project and request a quotation." },
-  icons: { icon: "/africhiko-icon.svg", apple: "/africhiko-icon.svg" },
+  openGraph: { type: "website", url: siteUrl, siteName: "Facilities", title: "Facilities | Cleaning & Maintenance", description: "Cleaning and facilities maintenance in Botswana. Tell us what your property needs." },
+  twitter: { card: "summary", title: "Facilities | Cleaning & Maintenance", description: "Welding and steel fabrication in Botswana. Tell us about your project and request a quotation." },
+  icons: { icon: "/facilities-icon.svg", apple: "/facilities-icon.svg" },
   manifest: "/manifest.webmanifest",
-  appleWebApp: { capable: true, title: "Africhiko", statusBarStyle: "default" },
+  appleWebApp: { capable: true, title: "Facilities", statusBarStyle: "default" },
 };
 
-export const viewport: Viewport = { themeColor: "#6d28d9", colorScheme: "light" };
+export const viewport: Viewport = { themeColor: "#0f766e", colorScheme: "light" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="en"><body><PwaRegister />{children}<Analytics /><SpeedInsights /></body></html>;
