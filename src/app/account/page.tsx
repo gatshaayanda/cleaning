@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import AfrichikoPortal from "@/components/AfrichikoPortal";
 
 export const metadata: Metadata = {
-  title: "My enquiries",
-  description: "Review your Africhiko project enquiries.",
+  title: "My orders",
+  description: "Review your Geerams order history.",
 };
 
 export default function AccountPage() {

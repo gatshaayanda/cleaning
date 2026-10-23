@@ -1,46 +1,34 @@
-# Facilities
+# Geerams Cleaning Services
 
-A customer-first facilities management and maintenance PWA for Botswana. It is intended for commercial properties, office complexes, schools, retail sites and hospitality facilities.
+Customer-first cleaning-products catalogue and order-request PWA for Geerams Cleaning Services, based in Kanye, Botswana.
 
-## Customer journey
+## Customer flow
+- Browse products and add quantities to a basket.
+- Submit an order request with contact details and collection/delivery information.
+- A Firebase guest session is created for the request. Customers can link Google sign-in to revisit order history and make repeat orders easier.
+- Orders are not paid online and are not confirmed until Geerams verifies stock, fulfilment arrangements and payment details.
 
-1. Browse available services: commercial cleaning, planned maintenance, repairs and facilities support.
-2. Select relevant services, or go straight to a maintenance request.
-3. Share contact details, the property/site location, the issue, affected area, access requirements and optional supporting media.
-4. Submit the request and receive confirmation only after the configured data write succeeds.
-5. Optionally sign in with Google to keep requests associated with the same Firebase identity and revisit their status.
+## Admin flow
+Use the discreet **Admin access** link at the bottom of the site. Authorized staff can create, edit, hide/restore and remove products; review customer order requests and contact details; update statuses and internal notes; publish announcements; and manage product highlights/media. Media uploads use the existing UploadThing integration.
 
-A submitted request is not a confirmed visit, work order or schedule. The facilities team reviews details and follows up before work is agreed.
+## Configuration
+- Firebase project: `cleaning-c8a27`
+- Set the public Firebase web-app variables in the deployment environment.
+- The admin access route uses server-only `FIREBASE_ADMIN_KEY` and inherited `AFRICHIKO_ADMIN_WORD` configuration. Keep both server-side and out of Git.
+- Configure `UPLOADTHING_TOKEN` server-side; never commit real credentials.
+- Set `NEXT_PUBLIC_BASE_URL` to the actual production domain before deployment.
 
-## Admin journey
+## Preserved foundation
+The installation component `src/app/pwa-register.tsx` was not changed. Keep its installation lifecycle and behaviour protected. The Phaser mini-game mechanics are preserved; only visible copy/theme has been rebranded.
 
-1. Open the discreet **Admin access** link in the footer.
-2. Sign in through the existing server-verified access flow.
-3. Review incoming requests and update their status, internal notes and follow-up date.
-4. Manage available services, service announcements and published service updates from the dashboard.
-5. Publish, hide or edit landing-page content; customer-facing content is shown only when active.
+## Firestore
+Existing collection names and data schemas remain in place to avoid a migration: `services` (product catalogue), `enquiries` (order requests), `admins` (staff roles), `announcements`, `workFeed` (product highlights), and `workInterests`. Admin-only writes remain protected by Firestore rules.
 
-## Protected foundation
-
-- Preserve the inherited PWA installation mechanism, event lifecycle, install button and dismissible card, embedded-browser behaviour, offline registration and service-worker behaviour. Only brand copy, colors and app identity may change without explicit authorization.
-- Preserve the existing chatbot and its interaction.
-- Keep the existing customer request, Google account and admin authorization behaviour intact during branding work.
-- Use UploadThing for media where the existing integration is configured. Do not add Firebase Storage rules or migrate uploads without explicit authorization.
-- Keep Firebase Admin credentials, UploadThing tokens and admin access words server-side and out of Git.
-
-## Stack
-
-- Next.js 15 / React 19 / TypeScript
-- Firebase Authentication and Cloud Firestore
-- UploadThing integration
-- PWA service worker and install prompt
-- Vercel Analytics and Speed Insights
-
-## Development
-
-```bash
-npm install
-npm run dev
-```
-
-Before release, run `npx tsc --noEmit`, `npm run lint` and `npm run build` where the environment permits. A GitHub push or successful build alone does not prove that the production deployment is healthy.
+## QA checklist
+1. Add/remove products and change quantities; refresh and verify the basket persists.
+2. Submit a valid order and verify success appears only after Firestore confirms the write.
+3. Link Google sign-in and verify only the signed-in customer's order history is visible.
+4. As an authorized admin, add/edit/hide/restore a product and confirm the public catalogue updates.
+5. Change an order status and save internal notes; confirm they persist.
+6. Publish/unpublish announcements and product highlights; check media uploads.
+7. Verify phone/WhatsApp links, mobile layout, offline messaging and the existing install prompt without changing installation code.
