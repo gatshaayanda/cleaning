@@ -14,7 +14,7 @@ Use the discreet **Admin access** link at the bottom of the site. Authorized sta
 ## Configuration
 - Firebase project: `cleaning-c8a27`
 - Set the public Firebase web-app variables in the deployment environment.
-- The admin access route uses server-only `FIREBASE_ADMIN_KEY` and inherited `AFRICHIKO_ADMIN_WORD` configuration. Keep both server-side and out of Git.
+- The admin access route requires server-only `FIREBASE_ADMIN_KEY` and prefers `ADMIN_PASSWORD` (with `AFRICHIKO_ADMIN_WORD` accepted as a legacy fallback). Keep them server-side and out of Git; use a strong password in production.
 - Configure `UPLOADTHING_TOKEN` server-side; never commit real credentials.
 - Set `NEXT_PUBLIC_BASE_URL` to the actual production domain before deployment.
 

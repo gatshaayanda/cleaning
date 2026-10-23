@@ -15,7 +15,7 @@ This is a customer-first cleaning-products and bulk hygiene supply PWA for Geera
 - The current database schema uses services for product catalogue items and enquiries for customer order requests. Keep these collection names and schemas unless a deliberate migration is approved.
 - Use UploadThing through the existing integration for media uploads. Do not add Firebase Storage rules or migrate storage.
 - Do not open Firestore access to work around permission errors. Admin-only operations must remain authorized and secrets server-side.
-- The existing server-side admin access route reads AFRICHIKO_ADMIN_WORD and FIREBASE_ADMIN_KEY; keep these server-only. Do not assume ADMIN_PASSWORD is read by the current route unless code/config is explicitly coordinated.
+- The server-side admin access route reads ADMIN_PASSWORD first, falling back to legacy AFRICHIKO_ADMIN_WORD, and requires FIREBASE_ADMIN_KEY. Keep all three server-only; never use a NEXT_PUBLIC_ prefix.
 - The site lists Orange Money and FNB details for reference, but does not process payments. Do not claim payment, live stock, delivery or collection is confirmed.
 
 ## PWA installation — protected
